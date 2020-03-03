@@ -69,6 +69,7 @@ class AuthController extends Controller
 
     public function postSignIn(Request $request, $response)
     {
+
         $auth = $this->auth->attempt(
             $request->getParam('email'),
             $request->getParam('password')
@@ -78,7 +79,7 @@ class AuthController extends Controller
          * Si la classe Auth est définie sur false (mot de passe incorrect), redirigez-la vers la page de connexion
          */
         if (!$auth) {
-            $this->flash->addMessage('error','Impossible de vous connecter avec ces identifiants');
+            $this->flash->addMessage('error','Impossible de se connecter avec ces identifiants');
             return $response->withRedirect($this->router->pathFor('auth.signin'));
         }
         $this->flash->addMessage('success','Vous êtes connecté !');
