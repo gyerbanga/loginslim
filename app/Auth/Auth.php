@@ -9,7 +9,7 @@ class Auth
 
     /**
      * @return mixed
-     * zwraca obiekt zalogowanego urzytkownika
+     * renvoie l'objet de l'utilisateur connecté
      */
     public function user()
     {
@@ -22,7 +22,7 @@ class Auth
 
     /**
      * @return bool
-     * sprawdza czy jest ktoś zalogowany zwraca true/false
+     * vérifie si quelqu'un est connecté renvoie vrai / faux
      */
     public function check()
     {
@@ -34,18 +34,22 @@ class Auth
      * @param $email
      * @param $password
      * @return bool
-     * zwraca true jeśli  podany email i hasło jest prawdziwe, ustwaia zmienną $_SESSION['user'] = id w bazie
+     retourne vrai si l'e-mail et le mot de passe donnés sont valides ,$_SESSION['user'] = id dans la base
      */
     public function attempt($email, $password)
     {
+
         $user = User::where('email', $email)->first();
 
         if (!$user) {
             return false;
         }
 
-        if (password_verify($password, $user->password)) {
+        /*if (password_verify($password, $user->password))*/
+        if($password == $user->password){
+
             $_SESSION['user'] = $user->id;
+
             return true;
         }
 
