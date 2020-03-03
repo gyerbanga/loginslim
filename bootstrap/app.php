@@ -41,7 +41,6 @@ $container['flash'] = function ($container){
     return new \Slim\Flash\Messages;
 };
 
-
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig(__DIR__ . '/../resources/views', [
         'cache' => false,
