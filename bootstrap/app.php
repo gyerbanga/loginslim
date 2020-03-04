@@ -14,7 +14,7 @@ $app = new \Slim\App([
             'username' => 'innodev',
             'password' => 'Kr47052016!',
             'charset' => 'utf8',
-            'collation' => 'utf8mb4_unicode_ci',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ],
         'determineRouteBeforeAppMiddleware' => true,
@@ -79,8 +79,12 @@ $container['PasswordController'] = function ($container) {
 
 $container['csrf'] = function ($container) {
     return new \Slim\Csrf\Guard;
+    $guard->setFailureCallable(function ($request, $response, $next) {
+        $request = $request->withAttribute("csrf_status", false);
+        return $next($request, $response);
+    });
+    return $guard;
 };
-
 
 
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
