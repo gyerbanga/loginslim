@@ -26,7 +26,8 @@
 
                 {% else %}
                 <li><a href="{{ path_for('auth.signin') }}">Se connecter </a></li>
-                <li><a href="{{ path_for('auth.signup') }}">Se déconnecter</a></li>
+                <li><a href="{{ path_for('auth.signout') }}">Se déconnecter</a></li>
+                <li><a href="{{ path_for('auth.signup') }}">S'inscrire</a></li>
                 {% endif %}
             </ul>
         </div>
