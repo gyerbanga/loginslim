@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Entrez vos identifiants pour vous connecter.</div>
+                <div class="panel-heading">Pour vous inscrire, choisissez vos identifiants.</div>
                 <div class="panel-body">
 
                     <form action="{{ path_for('auth.signup') }}" method="post">
@@ -35,7 +35,7 @@
                             {% endif %}
                         </div>
 
-                        <button type="submit" class="btn btn-default">Se connecter</button>
+                        <button type="submit" class="btn btn-default">S'inscrire</button>
 
                         {# zabezpieczenie przez spreparowaniem formularza #}
                         {{ csrf.field | raw }}
