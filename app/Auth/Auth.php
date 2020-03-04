@@ -45,7 +45,7 @@ class Auth
             return false;
         }
 
-        /*if (password_verify($password, $user->password))*/
+/*if (password_verify($password, $user->password))*/
         if($password == $user->password){
 
             $_SESSION['user'] = $user->id;
@@ -56,6 +56,7 @@ class Auth
         return false;
     }
 
+//déconnexion
     public function logout()
     {
         unset($_SESSION['user']);
