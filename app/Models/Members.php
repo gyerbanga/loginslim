@@ -36,10 +36,10 @@ class Members extends Model
     ];
 
 
-    public function setPassword($date){
+    public function setAdhesionDate($date){
         $day=date('Y-m-d H:i:s');
         $this->update([
-            'date' => $day
+            'adhesion_date' => $day
         ]);
     }
 }
