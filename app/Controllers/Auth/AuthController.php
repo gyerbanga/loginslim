@@ -94,9 +94,9 @@ class AuthController extends Controller
         }
         $this->flash->addMessage('success','Vous êtes connecté !');
         /**
-         * sinon, si le mot de passe correspond à la redirection vers la page d'accueil home
+         * sinon, si le mot de passe correspond à la redirection vers la page d'accueil des membres
          */
-        return $response->withRedirect($this->router->pathFor('home'));
+        return $response->withRedirect($this->router->pathFor('membres'));
     }
 
 }
