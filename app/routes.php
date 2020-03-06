@@ -1,8 +1,19 @@
 <?php
+
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
+use Illuminate\Support\Facades\DB;
 
 $app->get('/', 'HomeController:index')->setName('home');
+
+$app->get('/membres', 'MembersController:espacemembres')->setName('membres');
+
+$app->get('/api/flights/{id}', function ($id) {
+		$users = DB::table('users')->get();
+		$user="ouii";
+	return $users;
+    //return App\Models\User::findOrFail($id);
+});
 
 /**
    groupe de routage auquel les clients ont accès
@@ -15,6 +26,7 @@ $app->group('',function (){
 
     $this->get('/auth/signin', 'AuthController:getSignIn')->setName('auth.signin');
     $this->post('/auth/signin', 'AuthController:postSignIn');
+    //$this->get('/delete', 'AuthController:delete2')->setName('suppress');
 
 })->add(new GuestMiddleware($container));
 
