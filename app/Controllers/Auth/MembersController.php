@@ -26,8 +26,22 @@ class MembersController extends Controller
     {
     	//récupérer tous les membres du club
         $amis= $this->member->getAllMembers();
+        //selectionner tous les membres qui ont cotisé avec date et montant
+        $cotas= $this->member->membresAjourCota();
+        $stat= $this->member->getStat();
 
-        return $this->view->render($response, 'membres.twig',[
-        	'membres'=>$amis]);
+        return $this->view->render($response, 'membres.twig',
+            [
+        	'membres'  =>$amis,
+            'cotas'    =>$cotas,
+            'effectif' =>$stat['effectif'],
+            'cot_max'  =>$stat['cot_max'],
+            'total'    =>$stat['total'],
+            'cota_min' =>$stat['cota_min'],
+            'moyenne' =>$stat['moyenne'],
+            'mot'      =>"Vous pouvez faire"
+        ]);
     }
+
+
 }
