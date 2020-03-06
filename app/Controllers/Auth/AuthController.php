@@ -1,5 +1,7 @@
 <?php
 
+/* https://laravel.com/docs/7.x/eloquent */
+/* https://code.i-harness.com/fr/docs/laravel~5.7/docs/5.7/queries */
 namespace App\Controllers\Auth;
 
 use App\Controllers\Controller;
@@ -40,12 +42,19 @@ class AuthController extends Controller
             return $response->withRedirect($this->router->pathFor('auth.signup'));
         }
 
-
+        //on sauvegarde les données saisies:
+        //ex: $user = User::create(['name' => 'Flight 10']);
         $user = User::create([
             'email' => $request->getParam('email'),
             'name' => $request->getParam('name'),
             'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
         ]);
+
+        // Retrieve flight by name, or create it with the name, delayed, and arrival_time attributes...
+            /*$user = User::firstOrCreate(
+                ['name' => 'Flight 10'],
+                ['delayed' => 1, 'arrival_time' => '11:30']
+            );*/
 
         /**
          * message flash ajouté
@@ -61,6 +70,7 @@ class AuthController extends Controller
         return $response->withRedirect($this->router->pathFor('home'));
     }
 
+// gestion des pages de connexion
     public function getSignIn(Request $request, $response)
     {
 
