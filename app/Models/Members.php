@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 
 class Members extends Model
 {
-
      /**
      * The table associated with the model.
      * The primary key associated with the table.
@@ -29,17 +28,21 @@ class Members extends Model
         'civilite',
         'adresse',
         'cp',
+        'ville',
         'tel1',
         'tel2',
         'mail',
         'adhesion_date',
+        'status',
+        'cotisation',
+        'dons',
     ];
 
 
-    public function setAdhesionDate($date){
-        $day=date('Y-m-d H:i:s');
+    public function setAdhesionDate(){
+
         $this->update([
-            'adhesion_date' => $day
+            'adhesion_date' => date('Y-m-d H:i:s');
         ]);
     }
 }
