@@ -22,15 +22,15 @@ $app = new \Slim\App([
         'debug' => true,
         'determineRouteBeforeAppMiddleware' => true,
         'addContentLengthHeader' => false,
-        'cookies.secure' => false,
-         'cookies.lifetime' => '20 minutes',
+        /*'cookies.secure' => false,
+         'cookies.lifetime' => '20 minutes',*/
     ],
 ]);
 
 /* Configuration des éléments instanciés*/
 //http://www.slimframework.com/docs/v2/configuration/settings.html
-$app->config('cookies.lifetime', '20 minutes');
-$app->config('cookies.secure', false);
+/*$app->config('cookies.lifetime', '20 minutes');
+$app->config('cookies.secure', false);*/
 
 $container = $app->getContainer();
 
@@ -45,6 +45,9 @@ $container['db'] = function ($container) use ($capsule) {
 
 $container['auth'] = function ($container) {
     return new \App\Auth\Auth;
+};
+$container['member'] = function ($container) {
+    return new \App\Auth\Membre;
 };
 
 $container['flash'] = function ($container){
@@ -83,6 +86,10 @@ $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 };
 
+$container['MembersController'] = function ($container) {
+    return new \App\Controllers\Auth\MembersController($container);
+};
+
 $container['PasswordController'] = function ($container) {
     return new \App\Controllers\Auth\PasswordController($container);
 };
@@ -100,6 +107,7 @@ $container['csrf'] = function ($container) {
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 $app->add(new \App\Middleware\OldInputMiddleware($container));
 $app->add(new App\Middleware\CsrfViewMiddleware($container));
+//$app->add(new App\Middleware\MembersMiddleware($container));
 
 
 $app->add($container->csrf);
