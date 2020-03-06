@@ -42,7 +42,7 @@ class Members extends Model
     public function setAdhesionDate(){
 
         $this->update([
-            'adhesion_date' => date('Y-m-d H:i:s');
+            'adhesion_date' => date('Y-m-d H:i:s')
         ]);
     }
 }
