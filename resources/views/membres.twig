@@ -13,7 +13,7 @@
 
         <div class="portlet-title  margin-top:50 padding-bottom: 80">
              <div class="caption"><i class="fa fa-folder-open-o"></i>
-                Liste des membres potentiels qui sont à jour de leur cotisation
+                <h4>Liste des membres du club</h4>
              </div>
         </div>
 
@@ -27,6 +27,8 @@
                         <td ><strong>Mail</strong></td>
                         <td ><strong>Adresse complète</strong></td>
                         <td><strong>Ville</strong></td>
+                        <td><strong>Téléphone</strong></td>
+                        <td><strong>Téléphone secondaire</strong></td>
                         <td><strong>Civilité</strong></td>
                         <td><strong>Date d'adhésion</strong></td>
                         <td><strong>Statut</strong></td>
@@ -43,6 +45,8 @@
                         <td>{{membre.mail}}</td>
                         <td>{{membre.adresse ~ ' '~ membre.cp}}</td>
                         <td>{{membre.ville}}</td>
+                        <td>{{membre.tel1}}</td>
+                        <td>{{membre.tel2}}</td>
                         <td>{{membre.civilite}}</td>
                          <td>{{membre.adhesion_date}}</td>
                         <td>{{membre.statut}}</td>
@@ -51,6 +55,70 @@
                     </tr>
                   </tbody>
                     {% endfor %}
+            </table>
+        </div>
+
+       <div class="portlet-title  margin-top:50 padding-bottom: 80">
+         <div class="caption"><i class="fa fa-folder-open-o"></i>
+            <h4>Liste des membres potentiels qui sont à jour de leur cotisation</h4>
+         </div>
+        </div>
+
+        <div class="portlet-body">
+            <table class="table table-striped table-bordered table-hover is-a-datatable-ss" id="cota" data-type="cota">
+                <thead>
+                    <tr>
+                        <td><strong>numero</strong></td>
+                        <td ><strong>Nom</strong></td>
+                        <td ><strong>Prénom</strong></td>
+                        <td><strong>Date d'adhésion</strong></td>
+                        <td><strong>Cotisation</strong></td>
+                        <td><strong>Dons</strong></td>
+                    </tr>
+                </thead>
+                    {% for cota in cotas %}
+                <tbody>
+                    <tr>
+                        <td>{{cota.id_membres}}</td>
+                        <td>{{cota.nom}}</td>
+                        <td>{{cota.prenom}}</td>
+                         <td>{{cota.adhesion_date}}</td>
+
+                        <td>{{cota.cotisation}}</td>
+                        <td>{{cota.dons}}</td>
+                    </tr>
+                  </tbody>
+                    {% endfor %}
+            </table>
+        </div>
+
+         <div class="portlet-title  margin-top:50 padding-bottom: 80">
+         <div class="caption"><i class="fa fa-folder-open-o"></i>
+           <h4> Les statistiques possibles liées à la cotisation</h4>
+         </div>
+        </div>
+
+        <div class="portlet-body">
+            <table class="table table-striped table-bordered table-hover is-a-datatable-ss" id="cota" data-type="cota">
+                <thead>
+                    <tr>
+                        <td ><strong>Effectif des cotisants</strong></td>
+                        <td ><strong>La somme maximale</strong></td>
+                        <td><strong>La somme minimale</strong></td>
+                        <td><strong>Cotisation totale</strong></td>
+                        <td><strong>La moyenne des cotisations</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ effectif }}</td>
+                        <td>{{ cot_max }}</td>
+                        <td>{{ cota_min }}</td>
+                        <td>{{ total }}</td>
+                        <td>{{ moyenne }}</td>
+
+                    </tr>
+                  </tbody>
             </table>
         </div>
     </div>
