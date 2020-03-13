@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Pour vous inscrire, choisissez vos identifiants.</div>
+                <div class="panel-heading text-center">Pour vous inscrire, choisissez vos identifiants.</div>
                 <div class="panel-body">
 
                     <form action="{{ path_for('auth.signup') }}" method="post">
@@ -17,7 +17,6 @@
                             {% endif %}
                         </div>
 
-
                         <div class="form-group{{ errors.name ?' has-error' : '' }}">
                             <label for="name">Nom</label>
                             <input type="text" name="name" id="name" class="form-control" value="{{ old.name }}">
@@ -25,7 +24,6 @@
                                 <span class="help-block">{{ errors.name | first }}</span>
                             {% endif %}
                         </div>
-
 
                         <div class="form-group{{ errors.password ?' has-error' : '' }}">
                             <label for="password">Mot de passe</label>
