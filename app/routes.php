@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 $app->get('/', 'HomeController:index')->setName('home');
 
 $app->get('/membres', 'MembersController:espacemembres')->setName('membres');
+$app->get('/historique', 'AssoController:historique')->setName('historique');
 
 
 $app->get('/api/flights/{id}', function ($id) {
