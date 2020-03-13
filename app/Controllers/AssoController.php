@@ -13,6 +13,6 @@ class AssoController extends Controller
 
     public function historique($request, $response)
     {
-        return $this->view->render($response, 'auth/historique.twig');
+        return $this->view->render($response, 'historique.twig');
     }
 }
