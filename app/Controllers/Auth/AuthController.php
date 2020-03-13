@@ -47,7 +47,8 @@ class AuthController extends Controller
         $user = User::create([
             'email' => $request->getParam('email'),
             'name' => $request->getParam('name'),
-            'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),
+            'password' => $request->getParam('password'),
+           /* 'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT),*/
         ]);
 
         // Retrieve flight by name, or create it with the name, delayed, and arrival_time attributes...
@@ -59,15 +60,16 @@ class AuthController extends Controller
         /**
          * message flash ajouté
          */
-        $this->flash->addMessage('info','Votre inscription a été prise en compte !');
+        $this->flash->addMessage('info','Votre inscription a été prise en compte ! Vous pouvez maintenant vous connecter les prochaines fois sur notre plateforme avec vos identifiants saisis.');
 
         /**
          * Après avoir créé le compte, il se connecte immédiatement au compte
          * prend l'e-mail de l'objet utilisateur créé et le mot de passe de l'entrée envoyée dans le formulaire
          */
         $this->auth->attempt($user->email, $request->getParam('password'));
-
-        return $response->withRedirect($this->router->pathFor('home'));
+        //Envoie des mails avec les identifiants
+        //$this->auth->attempt($user->email, $request->getParam('password'));
+        return $response->withRedirect($this->router->pathFor('membres'));
     }
 
 // gestion des pages de connexion
