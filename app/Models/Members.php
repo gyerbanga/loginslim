@@ -1,5 +1,6 @@
 <?php
 
+/*  https://laravel.sillo.org/les-relations-avec-eloquent-12/php relations*/
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +30,7 @@ class Members extends Model
         'adresse',
         'cp',
         'ville',
+        'pays',
         'tel1',
         'tel2',
         'mail',
@@ -38,6 +40,13 @@ class Members extends Model
         'dons',
     ];
 
+    /**
+     * relation de type 1:1
+     */
+     public function bureau()
+    {
+        return $this->hasOne('App\Models\Bureaux','membre_id');
+    }
 
     public function setAdhesionDate(){
 
