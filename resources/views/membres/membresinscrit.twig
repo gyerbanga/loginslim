@@ -85,10 +85,10 @@
                     <div class="boutton">
                         <div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
                         <div class="col-lg-1 col-md-1 col-xs-12">
-                            <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default">  Cancel   <span class="glyphicon glyphicon-remove"></span></button>
+                            <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default"><strong> Cancel </strong>  <span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
-                            <button name="submit" id="submit" type="submit" value="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span>   Envoyer les informations  <span class="glyphicon glyphicon-chevron-right"></span></button>
+                            <button name="submit" id="submit" type="submit" value="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span><strong> Envoyer les informations  </strong><span class="glyphicon glyphicon-chevron-right"></span></button>
                             {# protection contre la formulation du formulaire #}
                                 {{ csrf.field | raw }}
                         </div>
