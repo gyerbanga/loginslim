@@ -89,8 +89,8 @@ $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 };
 
-$container['AssoController'] = function ($container) {
-    return new \App\Controllers\AssoController($container);
+$container['SidebarController'] = function ($container) {
+    return new \App\Controllers\SidebarController($container);
 };
 
 $container['MembersController'] = function ($container) {
