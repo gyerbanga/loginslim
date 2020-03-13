@@ -95,7 +95,7 @@ class Users
                      ->setPassword('Pauline73');
 
         // Create the message
-        $message = new Swift_Message('Wonderful Subject');
+        $message = new Swift_Message('Important !');
         $message->setTo(array(
            'yerbangag@yahoo.fr' => "Yerbanga Gaston",
            "gyerbanga@innosys.fr" => "Kefele"
