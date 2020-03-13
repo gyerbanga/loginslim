@@ -7,8 +7,13 @@ use Illuminate\Support\Facades\DB;
 $app->get('/', 'HomeController:index')->setName('home');
 
 $app->get('/membres', 'MembersController:espacemembres')->setName('membres');
-$app->get('/historique', 'AssoController:historique')->setName('historique');
 
+$app->group('',function (){
+
+    $this->get('/historique', 'SidebarController:historique')->setName('historique');
+    $this->get('/contact', 'SidebarController:contacter')->setName('contact');
+
+})->add(new GuestMiddleware($container));
 
 $app->get('/api/flights/{id}', function ($id) {
 		$users = DB::table('users')->get();
