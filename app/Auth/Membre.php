@@ -5,7 +5,7 @@
 
 namespace App\Auth;
 
-use App\Models\Members
+use App\Models\Members;
 
 class Membre
 {
