@@ -27,6 +27,13 @@ class Membre
         return Members::find($int);
     }
 
+     // obtenir les éléments de ceux qui 
+    public function Choixmembres(string $genre)
+    {
+        $membres=Members::where('nom', 'like', '%$genre%')->get();
+        return $membres;
+    }
+
     //récupérer liste liées à un paramètre
     public function lister($nom)
     {
