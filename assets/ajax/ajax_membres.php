@@ -1,7 +1,5 @@
 <?php
 
-
-
 $jsonData = array(
     'id_membres' => $_POST['id_membres']),
     'nom' => $_POST['nom']),
@@ -21,6 +19,6 @@ $jsonData = array(
 header('Content-type: application/json');
 //Encode the array into JSON.
 $jsonDataEncoded = json_encode($jsonData);
-var_dump($jsonDataEncoded);
-exit;
+/*var_dump($jsonDataEncoded);
+exit;*/
 return $jsonDataEncoded :
