@@ -1,7 +1,80 @@
 {% extends 'templates/app.twig' %}
 
+
 {% block content %}
+    <div class="row">
+       <div class="col-md-12 col-md-offset-1"> 
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><h4><strong> Vous pouvez nous contacter par mail, par courriel ou par téléphone.</strong></h4></div>
+      
+        <div class="panel-body">
+        	
+						
+
+	<!-- BEGIN SIDEBAR & CONTENT -->
 	<div class="row">
-		Contactez-nous
+
+		<!-- BEGIN CONTENT -->
+		<div class="col-md-12">
+			<div class="content-page">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="map" class="gmaps margin-bottom-20">
+						<!-- Ici s'affichera la carte street map-->
+						</div>
+					</div>
+
+					<div class="col-md-9 col-sm-9">
+						<h2>Formulaire de contact</h2>
+						<!-- BEGIN FORM-->
+						<form action="javascript:;" id="myform" role="form">
+							<div class="form-group">
+								<label for="name">Nom</label>
+								<input type="text" class="form-control" name="name" id="name">
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="email" class="form-control"  name="email"  id="email">
+							</div>
+							<div class="form-group">
+								<label for="message">Message</label>
+								<textarea class="form-control" rows="5" name="message"  id="message"></textarea>
+							</div>
+							<button type="submit"  id="soumettre" class="btn btn-primary"><i class="icon-ok"></i> Envoyer</button>
+							<button type="button" class="btn btn-default">Annuler</button>
+						</form>
+						<!-- END FORM-->
+					</div>
+
+					<!-- SIDEBAR -->
+					<?php include(ROOT.'src/Views/vitrine/view.include.sidebar.php'); ?>
+					<!-- END SIDEBAR -->
+
+				</div>
+			</div>
+		</div>
+		<!-- END CONTENT -->
+
 	</div>
+	<!-- END SIDEBAR & CONTENT -->
+
+<div class="col-md-12 text-justify">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						Vous pouvez également trouver la réponse à la plupart de vos questions dans nos Questions/Réponses.
+					</div>
+				</div>
+
+         	<div class="row  margin-top-60">
+         	
+                <div class="col-lg-12">
+                   
+                        <div class="text-center text-primary margin-top-50 ">
+                            <button name="submit" id="submit" type="submit" value="submit" class="btn btn-default">
+                            <strong> Questions-réponses </strong><span class="glyphicon glyphicon-chevron-right"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}
