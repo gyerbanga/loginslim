@@ -6,7 +6,8 @@
         "respect/validation": "^1.1",
         "slim/csrf": "^0.8.1",
         "slim/flash": "^0.2.0",
-        "swiftmailer/swiftmailer": "^6.0"
+        "swiftmailer/swiftmailer": "^6.0",
+        "wixel/gump": "^1.11"
     },
     "autoload": {
         "psr-4": {
